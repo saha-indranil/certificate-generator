@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Pacifico&display=swap");
+
 *,
 *::after,
 *::before {
@@ -8,6 +10,9 @@
 body {
   background: linear-gradient(to bottom, #06072c 0%, #09012b 100%);
   color: #fff;
+  font-family: "Dancing Script", cursive;
+  font-family: "Great Vibes", cursive;
+  font-family: "Pacifico", cursive;
   font-family: "Roboto", sans-serif;
 }
 
@@ -20,9 +25,9 @@ header {
   background: linear-gradient(to right, #1d024b, rgb(6, 77, 117));
   color: #fff;
 }
-main{
-  display:flex;
-  flex-direction:column;
+main {
+  display: flex;
+  flex-direction: column;
 }
 main > div:nth-child(2) {
   display: flex;
@@ -60,10 +65,10 @@ main > div:nth-child(2) {
 #downloadbutton {
   font-size: 1em;
 }
-.downloadzip{
+.downloadzip {
   display: none;
 }
-#downloadzipbutton{
+#downloadzipbutton {
   font-size: 1em;
 }
 .uploadlabel {
@@ -198,30 +203,26 @@ input[type="color"] {
   display: none;
 }
 
-.formattool{
+.formattool {
   padding: 5px 10px;
-  font-size:1.1em;
+  font-size: 1.1em;
   background: #ffffff1a;
   border: 1px solid #ccc4;
   border-radius: 5px;
   color: #fff;
 }
-.formattool[data-active="1"]{
+.formattool[data-active="1"] {
   background: #fff;
   color: #000;
 }
-#textbold{
+#textbold {
   font-weight: bold;
 }
-#textitalic{
+#textitalic {
   font-style: italic;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "Courier New", Courier, monospace;
   font-weight: 800;
 }
-
-
-
-
 
 .slidecontainer {
   width: 100%;
@@ -234,8 +235,8 @@ input[type="color"] {
   background: linear-gradient(to right, transparent 5%, white 100%);
   outline: none;
   opacity: 0.7;
-  -webkit-transition: .2s;
-  transition: opacity .2s;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
 }
 
 .slider:hover {
@@ -247,41 +248,36 @@ input[type="color"] {
   appearance: none;
   width: 5px;
   height: 30px;
-  background:white;
-  mix-blend-mode:exclusion;
+  background: white;
+  mix-blend-mode: exclusion;
   cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
   width: 5px;
   height: 30px;
-  background:white;
-  mix-blend-mode:exclusion;
+  background: white;
+  mix-blend-mode: exclusion;
   cursor: pointer;
 }
 
-
-input[type="file"]{
+input[type="file"] {
   display: none;
 }
 
-
-
-
-
 @media screen and (max-width: 800px) {
-  main{
+  main {
     flex-direction: column-reverse;
   }
-  main>div:nth-child(2){
-    flex-direction:column;
+  main > div:nth-child(2) {
+    flex-direction: column;
   }
-  #asidebar{
+  #asidebar {
     width: 100%;
     max-width: 100%;
     margin: 5% 0;
   }
-  .toolscontainer{
+  .toolscontainer {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -289,19 +285,13 @@ input[type="file"]{
     z-index: 2;
     flex-direction: column;
   }
-  .slidecontainer{
+  .slidecontainer {
     width: auto;
   }
-
 }
 
-
-
-
-
-
 /* Progress Loader */
-.loaderbody{
+.loaderbody {
   position: fixed;
   top: 0;
   left: 0;
@@ -313,5 +303,4 @@ input[type="file"]{
   justify-content: center;
   align-items: center;
   font-size: 4em;
-
 }
