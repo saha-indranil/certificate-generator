@@ -527,7 +527,6 @@ function importFile(evt) {
 
       Inputs.innerHTML = "";
       document.querySelector(".downloadzip").style.display = "flex";
-      // document.querySelector(".downloadzip").href = "data:text/csv;charset=utf-8," + encodeURIComponent(data.map(row => titles.map(field => row[field]).join(",")).join("\n"));
       document.querySelector(".downloadfile").style.display = "none";
       titles.forEach((title, i) => {
         addField(title, [20, 20 + i * 10], false);
@@ -591,7 +590,7 @@ downloadZipButton.addEventListener("click", function (e) {
     });
     drawTextfromInputs();
 
-    var filename = "Cerrt_" + (i + 1) + ".png";
+    var filename = "Cert_" + (i + 1) + ".png";
     var src = canvas.toDataURL("image/png");
     // loading a file and add it in a zip file
     JSZipUtils.getBinaryContent(src, function (err, data) {
