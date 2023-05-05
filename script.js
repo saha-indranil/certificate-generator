@@ -1,5 +1,5 @@
 //  Initializing variables
-var defaultCertPNG = "./assets/dummy.png";
+var defaultCertPNG = "assets/dummy.png";
 var defaultFontSize = 20;
 var defaultFont = "Arial";
 var defaultColor = "black";
