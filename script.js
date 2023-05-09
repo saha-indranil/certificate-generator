@@ -1,5 +1,5 @@
 //  Initializing variables
-var defaultCertPNG = "assets/dummy.png";
+var defaultCertPNG = "assets/dummy1.png";
 var defaultFontSize = 20;
 var defaultFont = "Arial";
 var defaultColor = "black";
@@ -34,6 +34,8 @@ var downloadButton = document.getElementById("downloadbutton");
 var downloadZipButton = document.getElementById("downloadzipbutton");
 var imageFileInput = document.getElementById("uploadimage");
 var addInputButton = document.getElementById("addinput");
+const templates = document.querySelectorAll(".template");
+
 var Editor = {
   font: document.getElementById("fontfamily"),
   fontsize: document.getElementById("fontsize"),
@@ -62,6 +64,10 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 });
 
+/**
+ * The function adds event listeners to input fields, delete buttons, and checkboxes to update the
+ * editor options and draw text from inputs.
+ */
 function addListenerToInputs() {
   var inputs = document.getElementsByClassName("certinputs");
   var inputsLength = inputs.length;
@@ -88,6 +94,10 @@ function addListenerToInputs() {
   }
 }
 
+/**
+ * The function updates the editor options based on the selected checkboxes and their corresponding
+ * data.
+ */
 function updateEditorOptions() {
   var checkedCheckboxes = Inputs.querySelectorAll("input:checked");
 
@@ -110,6 +120,10 @@ function updateEditorOptions() {
   drawTextfromInputs();
 }
 
+/**
+ * This function draws text on a canvas based on input values and also adds a border to the selected
+ * element.
+ */
 function drawTextfromInputs() {
   // Clearing Canvas with white background
   ctx.fillStyle = "white";
@@ -160,6 +174,9 @@ function drawTextfromInputs() {
   }
 }
 
+/**
+ * The function draws a border around a selected element on a canvas and adds circles at the corners.
+ */
 function drawBorderForSelected() {
   // Create Rectange over Selected Element
   ctx.strokeStyle = "#0B082F";
@@ -195,10 +212,13 @@ function drawBorderForSelected() {
     ctx.fill();
     ctx.stroke();
   }
-
   console.log(sW, sH, defaultFontSize, width);
 }
 
+/**
+ * The function adds text to a canvas element with customizable font, position, opacity, color, and
+ * alignment.
+ */
 function addText(
   ctx = ctx,
   text = "Default Text",
@@ -250,6 +270,12 @@ function addText(
   ctx.fillText(text, xPos, yPos);
 }
 
+/* The below code is adding an event listener to a download button. When the button is clicked, it gets
+the selected element, draws text from inputs, and determines the download type (PNG, JPG, or PDF).
+If the download type is PNG or JPG, it creates an image from the canvas and creates a download link
+for the image. If the download type is PDF, it creates a PDF document and adds an image of the
+canvas to it, then creates a download link for the PDF. */
+
 downloadButton.addEventListener("click", function () {
   selectedElement = null;
   drawTextfromInputs();
@@ -273,6 +299,11 @@ downloadButton.addEventListener("click", function () {
   }
 });
 
+/* The below code is adding an event listener to an input element with the id "imageFileInput". When a
+file is selected using this input element, the code reads the file using the FileReader API and sets
+the source of an image element with the id "certImage" to the result of the file read. If no file is
+selected, the source of the image element is set to a default PNG image. */
+
 imageFileInput.addEventListener("change", function () {
   var file = imageFileInput.files[0];
   var reader = new FileReader();
@@ -284,6 +315,12 @@ imageFileInput.addEventListener("change", function () {
   } else {
     certImage.src = defaultCertPNG;
   }
+});
+
+templates.forEach((template) => {
+  template.addEventListener("click", () => {
+    certImage.src = template.src;
+  });
 });
 
 addInputButton.addEventListener("click", function () {
@@ -348,6 +385,12 @@ Editor.opacity.addEventListener("input", function () {
   updateDataset("opacity", this.value);
 });
 
+/**
+ * The function updates the dataset of selected checkboxes with a given data name and value, and can
+ * either overwrite or add to the existing value.
+ * It can have two possible values: "w" or "a". If mode is set to "w", the function will
+ * overwrite the existing value of the dataset with the new value. If mode is set to "a
+ */
 function updateDataset(dataname, value, mode = "w") {
   // alert("Color Changed");
   var checkedCheckboxes = document
@@ -373,6 +416,10 @@ function updateDataset(dataname, value, mode = "w") {
 }
 
 let myStick = new JoystickController("stick", 64, 8);
+/**
+ * The function continuously updates the x and y values of a dataset based on the movement of a stick,
+ * with a minimum threshold for changes in values.
+ */
 function loop() {
   requestAnimationFrame(loop);
   // Get current values

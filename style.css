@@ -191,6 +191,32 @@ main > div:nth-child(2) {
   color: #000;
 }
 
+.template-library {
+  background: #ffffff1a;
+}
+
+.template-library p {
+  font-size: 1.2em;
+  margin: 0 20px;
+  text-align: center;
+  width: calc(100% - 40px);
+  padding: 10px;
+}
+
+.template-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  flex-wrap: wrap;
+}
+
+.template-container img {
+  width: 40%;
+}
+
 input[type="color"] {
   height: 100%;
   aspect-ratio: 8/6;
